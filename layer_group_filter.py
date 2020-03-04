@@ -394,11 +394,11 @@ class LayerGroupFilter:
 
         # check if preset has ValueRelation, if so replace the value with a list of corresponing key's
         vr = self.GetValueRelation(presetXml)
-        if vr:
+        if vr is not None:
             values = self.getValueRelation(values[0], vr, invert=True, getAll=True)
 
         vl = self.GetValue(presetXml)
-        if vl.text:
+        if vl is not None:
             values.append(vl.text)
 
         # loop true ALL layers of current group
